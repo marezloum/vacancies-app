@@ -1,9 +1,6 @@
-import React from 'react'
-import "./index.scss"
+import React from "react";
+import "./index.scss";
 function Header() {
-  return (
-    <div>Header</div>
-  )
+  return <header>Header</header>;
 }
-
-export default Header
+export default Header;

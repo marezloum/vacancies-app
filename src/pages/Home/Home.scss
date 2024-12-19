@@ -1,0 +1,22 @@
+.home {
+  .searchbar-wrapper {
+    margin-top: 34px;
+    margin-bottom: 40px;
+  }
+  .content {
+    gap: 40px;
+    display: flex;
+    .leftPanel {
+      width: 40%;
+      .vacancyUse:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+    .rightPanel {
+      width: 60%;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

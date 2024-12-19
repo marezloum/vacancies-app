@@ -6,15 +6,21 @@ import SearchBar from "../../components/SearchBar";
 
 function Home() {
   return (
-    <main>
-      <SearchBar />
-      <div>
-        {VACANCIES.map((vacancy) => (
-          <VacancyCard vacancyData={vacancy} />
-        ))}
+    <main className="home">
+      <div className="container searchbar-wrapper">
+        <SearchBar />
       </div>
-      <div>
-        <VacancyDetails vacancy={VACANCIES[0]} />
+      <div className=" container content">
+        <div className="leftPanel">
+          {VACANCIES.map((vacancy) => (
+            <div className="vacancyUse">
+              <VacancyCard vacancyData={vacancy} />
+            </div>
+          ))}
+        </div>
+        <div className="rightPanel">
+          <VacancyDetails vacancy={VACANCIES[0]} />
+        </div>
       </div>
     </main>
   );
