@@ -1,4 +1,4 @@
-import "./ComponentsDemo.scss"
+import "./ComponentsDemo.scss";
 import Like from "../../components/shared/Like";
 import Tag from "../../components/shared/Tag";
 import RadioButtonGroup from "../../components/shared/RadioButtonGroup";
@@ -14,12 +14,12 @@ function ComponentsDemo() {
       </div>
       <div>
         <h2>Tag component</h2>
-        <Tag name="CSS"/>
-        <Tag name="React"/>
+        <Tag name="CSS" />
+        <Tag name="React" />
       </div>
       <div>
         <h2>RadioButtonGroup component</h2>
-        <RadioButtonGroup buttons={["button1", "button2"]}/>
+        {/* <RadioButtonGroup name="test" buttons={["button1", "button2"]} /> */}
       </div>
     </div>
   );

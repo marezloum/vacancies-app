@@ -1,25 +1,54 @@
 import "./Home.scss";
-import { VACANCIES } from "../../state/state";
+import { VACANCIES, Vacancy } from "../../state/state";
 import VacancyCard from "../../components/VacancyCard";
 import VacancyDetails from "../../components/VacancyDetails";
 import SearchBar from "../../components/SearchBar";
+import { useState } from "react";
 
 function Home() {
+  const [filteredVacancies, setFilteredVacancies] = useState(VACANCIES);
+  const [selectedVacancy, setSelectedVacancy] = useState<Vacancy>(VACANCIES[0]);
+
+  function submitSearchFunction(filters: any) {
+    const { city, schedule, jobType, experience, salary } = filters;
+    const newVacancies = VACANCIES.filter((vacancy) => {
+      return (
+        vacancy.location === city &&
+        (salary === "" || vacancy.salary >= salary) &&
+        (experience === "Нет опыта" ||
+          (experience === "От 1 года до 3 лет" &&
+            vacancy.experience >= 1 &&
+            vacancy.experience <= 3) ||
+          (experience === "От 3 до 6 лет" &&
+            vacancy.experience >= 3 &&
+            vacancy.experience <= 6) ||
+          (experience === "Более 6 лет" && vacancy.experience >= 6)) &&
+        vacancy.jobType === jobType &&
+        vacancy.schedule === schedule
+      );
+    });
+    setFilteredVacancies(newVacancies);
+    setSelectedVacancy(newVacancies[0]);
+  }
   return (
     <main className="home">
       <div className="container searchbar-wrapper">
-        <SearchBar />
+        <SearchBar submitSearchFunction={submitSearchFunction} />
       </div>
       <div className=" container content">
         <div className="leftPanel">
-          {VACANCIES.map((vacancy) => (
+          {filteredVacancies.map((vacancy) => (
             <div className="vacancyUse">
-              <VacancyCard vacancyData={vacancy} />
+              <VacancyCard
+                vacancyData={vacancy}
+                key={`vacancy-${vacancy.id}`}
+                isSelected={selectedVacancy.id === vacancy.id ? true : false}
+              />
             </div>
           ))}
         </div>
         <div className="rightPanel">
-          <VacancyDetails vacancy={VACANCIES[0]} />
+          <VacancyDetails vacancy={selectedVacancy} />
         </div>
       </div>
     </main>

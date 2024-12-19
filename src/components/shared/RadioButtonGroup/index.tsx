@@ -1,19 +1,40 @@
-import "./RadioButtonGroup.scss"
-// should have one prop like name
-// this name is the text for radio button and value of radio button
-function RadioButtonComponent({ value }: { value: string }) {
-  return <div>radioButton</div>;
-}
+import { useState } from "react";
+import "./RadioButtonGroup.scss";
 
 // prop should have a property named buttons.
 // the buttons property is an array of strings
 // we do a map method on this array and call RadioButtonComponent component with these strings
 //
-function RadioButtonGroup({ buttons = [] }: { buttons: string[] }) {
+function RadioButtonGroup({
+  buttons = [],
+  name,
+  onChange,
+  initialValue = "",
+}: {
+  buttons: string[];
+  name: string;
+  onChange: any;
+  initialValue?: string;
+}) {
+  const [current, setCurrent] = useState(initialValue);
   return (
-    <div>
+    <div className="radioButton_group">
       {buttons.length > 0
-        ? buttons.map((button) => <RadioButtonComponent value={button} />)
+        ? buttons.map((button) => (
+            <label key={button}>
+              <input
+                type="radio"
+                name={name}
+                onChange={(e) => {
+                  onChange(e.target.value);
+                  setCurrent(button);
+                }}
+                value={button}
+                checked={current === button}
+              />
+              {button}
+            </label>
+          ))
         : null}
     </div>
   );

@@ -1,0 +1,29 @@
+.vacancyDetails {
+  width: 100%;
+  padding: 30px;
+  .title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .jobTitle {
+      .moreInfo {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        color: rgba(154, 170, 181, 1);
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .price {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.38px;
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(249, 249, 249, 1);
+  }
+}

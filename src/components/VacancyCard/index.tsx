@@ -9,9 +9,16 @@ import Like from "../shared/Like";
 // Then for responsive, imagine that the wrapper div will get class name "small", so when wrapper div also have small class, design smaller version of the card
 // We will handle adding and removing that small class with react and javascript programatically
 // The heart icon should be svg, so we can easily swap between red and gray one in react
-function VacancyCard({ vacancyData }: { vacancyData: Vacancy }) {
+function VacancyCard({
+  vacancyData,
+  isSelected,
+}: {
+  vacancyData: Vacancy;
+  isSelected: boolean;
+}) {
   return (
-    <div className="vacancyCard_wrapper">
+    <div className={`vacancyCard_wrapper ${isSelected ? "selected" : ""}`}>
+      {isSelected ? <div></div> : null}
       <div className="logo">
         <img src={logo} alt="" />
       </div>
@@ -21,7 +28,7 @@ function VacancyCard({ vacancyData }: { vacancyData: Vacancy }) {
         <span>{vacancyData.location}</span>
         <div className="vacancy_tags">
           {vacancyData.tags.map((tag) => (
-            <Tag name={tag} />
+            <Tag name={tag} key={tag} />
           ))}
         </div>
       </div>
