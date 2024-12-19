@@ -15,8 +15,8 @@ import RadioButtonGroup from "../shared/RadioButtonGroup";
 function SearchBar({ submitSearchFunction }: any) {
   const [city, setCity] = useState("Москва");
   const [schedule, setSchedule] = useState("Полный день");
-  const [jobType, setJobType] = useState("Частичная занятость");
-  const [experience, setexperience] = useState("От 1 года до 3 лет");
+  const [jobType, setJobType] = useState("Стажировка");
+  const [experience, setexperience] = useState("Нет опыта");
   const [salary, setsalary] = useState("");
 
   const [currentOpenFilter, setCurrentOpenFilter] = useState("");
@@ -36,8 +36,8 @@ function SearchBar({ submitSearchFunction }: any) {
     submitSearchFunction({
       city: "Москва",
       schedule: "Полный день",
-      jobType: "Частичная занятость",
-      experience: "От 1 года до 3 лет",
+      jobType: "Стажировка",
+      experience: "Нет опыта",
       salary: "",
     });
   }, []);
@@ -91,7 +91,7 @@ function SearchBar({ submitSearchFunction }: any) {
                 ]}
                 name="jobType"
                 onChange={setJobType}
-                initialValue="Полная занятость"
+                initialValue="Стажировка"
               />
             ) : null}
           </div>
@@ -113,7 +113,7 @@ function SearchBar({ submitSearchFunction }: any) {
                 ]}
                 name="experience"
                 onChange={setexperience}
-                initialValue="От 1 года до 3 лет"
+                initialValue="Нет опыта"
               />
             ) : null}
           </div>

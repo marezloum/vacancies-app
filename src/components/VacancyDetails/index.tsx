@@ -11,15 +11,17 @@ function VacancyDetails({ vacancy }: { vacancy: Vacancy }) {
           <img src={companyLogo} alt="companyLogo" />
         </div>
         <div className="jobTitle">
-          <h3>Frontend developer (React)</h3>
+          <h3>{vacancy.title}</h3>
           <div className="moreInfo">
-            <span className="companyName">Winfinity</span>
+            <span className="companyName">{vacancy.companyName}</span>
             <span>|</span>
-            <span className="location">Москва</span>
+            <span className="location">{vacancy.location}</span>
           </div>
         </div>
       </div>
-      <div className="price">От 150 000 до 300 000 руб.</div>
+      <div className="price">
+        От {vacancy.salary.from} до {vacancy.salary.to} руб.
+      </div>
       <div className="content">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita
         ratione deserunt commodi veritatis ducimus! Animi dolor nemo sint.

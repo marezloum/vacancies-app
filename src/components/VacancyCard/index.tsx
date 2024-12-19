@@ -18,7 +18,7 @@ function VacancyCard({
 }) {
   return (
     <div className={`vacancyCard_wrapper ${isSelected ? "selected" : ""}`}>
-      {isSelected ? <div></div> : null}
+      {isSelected ? <div className="ribbon"></div> : null}
       <div className="logo">
         <img src={logo} alt="" />
       </div>

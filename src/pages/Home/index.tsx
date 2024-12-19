@@ -11,6 +11,7 @@ function Home() {
 
   function submitSearchFunction(filters: any) {
     const { city, schedule, jobType, experience, salary } = filters;
+    console.log(filters);
     const newVacancies = VACANCIES.filter((vacancy) => {
       return (
         vacancy.location === city &&
@@ -28,6 +29,7 @@ function Home() {
       );
     });
     setFilteredVacancies(newVacancies);
+    console.log(newVacancies);
     setSelectedVacancy(newVacancies[0]);
   }
   return (
@@ -38,7 +40,10 @@ function Home() {
       <div className=" container content">
         <div className="leftPanel">
           {filteredVacancies.map((vacancy) => (
-            <div className="vacancyUse">
+            <div
+              className="vacancyUse"
+              onClick={() => setSelectedVacancy(vacancy)}
+            >
               <VacancyCard
                 vacancyData={vacancy}
                 key={`vacancy-${vacancy.id}`}
