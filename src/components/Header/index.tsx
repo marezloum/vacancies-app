@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.scss";
 import siteName from "../../img/sitename.svg";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
@@ -8,8 +9,11 @@ function Header() {
         <div className="img">
           <img src={siteName} alt="name" />
         </div>
-        <a href="/"></a>
-        <a href="/"></a>
+        <div className="links">
+          <Link to="/">Поиск вакансий</Link>
+          <Link to="/liked">Избранные вакансии</Link>
+          <Link to="/add">Add вакансии</Link>
+        </div>
       </div>
     </header>
   );

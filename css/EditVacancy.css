@@ -1,0 +1,73 @@
+.editVacancy {
+  border-radius: 10px;
+  max-width: 500px;
+  background-color: white;
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.editVacancy form {
+  gap: 20px;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.editVacancy form > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  padding: 4px 36px;
+}
+.editVacancy form > div .radioButton_group {
+  position: absolute;
+  top: 25px;
+  z-index: 1;
+}
+.editVacancy form > div span {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14.63px;
+  text-align: left;
+}
+.editVacancy form .jobType,
+.editVacancy form .schedule {
+  cursor: pointer;
+  border: 1px solid rgb(22, 87, 56);
+}
+.editVacancy form .location,
+.editVacancy form .salary {
+  border: 2px solid rgb(22, 87, 56);
+  border-radius: 4px;
+}
+.editVacancy form .location input,
+.editVacancy form .salary input {
+  border: none;
+  border-bottom: 2px solid gray;
+  width: 100%;
+}
+.editVacancy form .location input:focus-visible, .editVacancy form .location input:focus,
+.editVacancy form .salary input:focus-visible,
+.editVacancy form .salary input:focus {
+  outline: none;
+}
+.editVacancy form > button {
+  margin: 0 auto;
+  width: 200px;
+  border-radius: 10px;
+  background: rgb(22, 87, 56);
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  height: 40px;
+}
+.editVacancy form > button:hover {
+  background: rgb(71, 141, 108);
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+}

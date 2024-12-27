@@ -1,0 +1,23 @@
+.likePage {
+  margin-top: 25px;
+}
+.likePage .searchbar-wrapper {
+  margin-top: 34px;
+  margin-bottom: 40px;
+}
+.likePage .content {
+  gap: 40px;
+  display: flex;
+}
+.likePage .content .leftPanel {
+  width: 40%;
+}
+.likePage .content .leftPanel .vacancyUse:not(:last-child) {
+  margin-bottom: 15px;
+}
+.likePage .content .rightPanel {
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+}

@@ -1,56 +1,35 @@
-import "./Home.scss";
+import "./Liked.scss";
 import { Vacancy } from "../../state/state";
 import VacancyCard from "../../components/VacancyCard";
 import VacancyDetails from "../../components/VacancyDetails";
-import SearchBar from "../../components/SearchBar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-function Home() {
+function Liked() {
   const allVacancies = useSelector(
     (state: any) => state.vacancies.allVacancies as Vacancy[]
   );
-  console.log(allVacancies);
-  const [filteredVacancies, setFilteredVacancies] = useState(allVacancies);
+
+  const allLiked = useSelector(
+    (state: any) => state.likes.allLiked
+  ) as number[];
+  const [filteredVacancies, setFilteredVacancies] = useState(
+    allVacancies.filter((vacancy) => allLiked.includes(vacancy.id))
+  );
   const [selectedVacancy, setSelectedVacancy] = useState<Vacancy | null>(
     allVacancies[0]
   );
 
-  function submitSearchFunction(filters: any) {
-    const { city, schedule, jobType, experience, salary } = filters;
-    const newVacancies = allVacancies.filter((vacancy) => {
-      return (
-        vacancy.location === city &&
-        (salary === "" ||
-          (vacancy.salary.to >= parseInt(salary) &&
-            vacancy.salary.from <= parseInt(salary))) &&
-        (experience === "Нет опыта" ||
-          (experience === "От 1 года до 3 лет" &&
-            vacancy.experience >= 1 &&
-            vacancy.experience <= 3) ||
-          (experience === "От 3 до 6 лет" &&
-            vacancy.experience >= 3 &&
-            vacancy.experience <= 6) ||
-          (experience === "Более 6 лет" && vacancy.experience >= 6)) &&
-        vacancy.jobType === jobType &&
-        vacancy.schedule === schedule
-      );
-    });
-    setFilteredVacancies(newVacancies);
-    if (newVacancies.length > 0) {
-      setSelectedVacancy(newVacancies[0]);
-    } else {
-      setSelectedVacancy(null);
-    }
-  }
+  useEffect(() => {
+    setFilteredVacancies(
+      allVacancies.filter((vacancy) => allLiked.includes(vacancy.id))
+    );
+  }, [allLiked, allVacancies]);
   return (
-    <main className="home">
-      <div className="container searchbar-wrapper">
-        <SearchBar submitSearchFunction={submitSearchFunction} />
-      </div>
+    <main className="likePage">
       <div className="container content">
         {filteredVacancies.length === 0 ? (
-          <div className="notFound">No vacancies found</div>
+          <div>No Liked vacancies found</div>
         ) : (
           <>
             <div className="leftPanel">
@@ -78,7 +57,7 @@ function Home() {
   );
 }
 
-export default Home;
+export default Liked;
 
 // 1. Develop a UI for a job search application. Layout according to the layout. The application should be adaptive. Header and SearchBar are fixed.
 

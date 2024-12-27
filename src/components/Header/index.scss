@@ -6,4 +6,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: Montserrat;
+      }
+    }
+  }
 }

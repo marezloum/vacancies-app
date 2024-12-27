@@ -6,6 +6,8 @@ import experienceIcon from "../../img/experience.svg";
 import salaryIcon from "../../img/salary.svg";
 import { FormEvent, useEffect, useState } from "react";
 import RadioButtonGroup from "../shared/RadioButtonGroup";
+import { useSelector } from "react-redux";
+import { Vacancy } from "../../state/state";
 // Each filter should open by mouse hover on that item
 // Price should be an input with Rubl name right side of it, make  input background transparent
 // For responsive, hover on filters(un ke be russi neveshte) has to open the filters
@@ -41,7 +43,18 @@ function SearchBar({ submitSearchFunction }: any) {
       salary: "",
     });
   }, []);
-
+  const allVacancies = useSelector(
+    (state: any) => state.vacancies.allVacancies as Vacancy[]
+  );
+  useEffect(() => {
+    submitSearchFunction({
+      city,
+      schedule,
+      jobType,
+      experience,
+      salary,
+    });
+  }, [allVacancies]);
   return (
     <div className="searchBar">
       <form onSubmit={handleFormSubmit}>

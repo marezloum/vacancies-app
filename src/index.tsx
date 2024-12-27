@@ -7,22 +7,31 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import ComponentsDemo from "./pages/ComponentsDemo";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { Provider } from "react-redux";
+import store from "./store";
+import Liked from "./pages/Liked";
+import AddVacancy from "./pages/AddVacancy/AddVacancy";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/components" element={<ComponentsDemo />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/components" element={<ComponentsDemo />} />
+            <Route path="/liked" element={<Liked />} />
+            <Route path="/add" element={<AddVacancy />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

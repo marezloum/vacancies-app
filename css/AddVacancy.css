@@ -1,0 +1,73 @@
+.addVacancy {
+  border-radius: 10px;
+  max-width: 500px;
+  background-color: white;
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.addVacancy form {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 20px;
+}
+.addVacancy form > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  padding: 4px 36px;
+}
+.addVacancy form > div .radioButton_group {
+  position: absolute;
+  top: 25px;
+  z-index: 1;
+}
+.addVacancy form > div span {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14.63px;
+  text-align: left;
+}
+.addVacancy form .jobType,
+.addVacancy form .schedule {
+  cursor: pointer;
+  border: 1px solid black;
+}
+.addVacancy form .location,
+.addVacancy form .salary {
+  border: 2px solid rgb(22, 87, 56);
+  border-radius: 4px;
+}
+.addVacancy form .location input,
+.addVacancy form .salary input {
+  border: none;
+  border-bottom: 2px solid gray;
+  width: 100%;
+}
+.addVacancy form .location input:focus-visible, .addVacancy form .location input:focus,
+.addVacancy form .salary input:focus-visible,
+.addVacancy form .salary input:focus {
+  outline: none;
+}
+.addVacancy form > button {
+  margin: 0 auto;
+  width: 200px;
+  border-radius: 4px;
+  background: rgb(22, 87, 56);
+  color: white;
+  height: 40px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+.addVacancy form > button:hover {
+  background: rgb(71, 141, 108);
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.2);
+}
